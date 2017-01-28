@@ -30,7 +30,7 @@ function SaveSnap(){
 	var img = Base64Binary.decodeArrayBuffer(file);
     var ajax = new XMLHttpRequest();
     ajax.addEventListener("load", function(event) { uploadcomplete(event);}, false);
-    ajax.open("POST", "https://api.projectoxford.ai/emotion/v1.0/recognize","image/jpg");
+    ajax.open("POST", "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize","image/jpg");
 	ajax.setRequestHeader("Content-Type","application/octet-stream");
 	//ajax.setRequestHeader("Accept-Encoding","gzip, deflate");
 	ajax.setRequestHeader("Accept","text/html,application/xhtml+xml,application/xml");
@@ -51,9 +51,7 @@ function uploadcomplete(event){
 	document.getElementById("sadness").innerHTML = list[0].childNodes[6].textContent;
 	document.getElementById("surprise").innerHTML = list[0].childNodes[7].textContent;
 }
-	
 window.onload= ShowCam;
-	
 </script>
 <style type="text/css">
 .container{display:inline-block;width:320px;}
@@ -66,7 +64,7 @@ window.onload= ShowCam;
    margin: 1px;
    color: white;
  }
-	</style>
+</style>
 </head>
 <body>
 <div class="container" id="Cam"><b>Webcam Preview...</b>
