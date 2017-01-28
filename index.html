@@ -52,25 +52,8 @@ function uploadcomplete(event){
 	document.getElementById("surprise").innerHTML = list[0].childNodes[7].textContent;
 }
 	
-	type: "POST",
- data: file,
- processData: false
- })
- .done(function (response) {
- ProcessResult(response);
- })
- .fail(function (error) {
- $("#response").text(error.getAllResponseHeaders());
- });
- }
- 
- function ProcessResult(response)
- {
- var data = JSON.stringify(response);
- $("#response").text(data);
- }
-	
 window.onload= ShowCam;
+	
 </script>
 <style type="text/css">
 .container{display:inline-block;width:320px;}
@@ -83,7 +66,7 @@ window.onload= ShowCam;
    margin: 1px;
    color: white;
  }
-</style
+	</style>
 </head>
 <body>
 <div class="container" id="Cam"><b>Webcam Preview...</b>
