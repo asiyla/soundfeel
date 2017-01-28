@@ -39,7 +39,7 @@ function SaveSnap(){
 }
 
 function uploadcomplete(event){
-    document.getElementById("loading").innerHTML="Compleated";
+    document.getElementById("loading").innerHTML="Completed";
 	var xmlDoc=event.target.responseXML;
 	var list = xmlDoc.getElementsByTagName("scores");
 	document.getElementById("anger").innerHTML = list[0].childNodes[0].textContent;
@@ -51,6 +51,25 @@ function uploadcomplete(event){
 	document.getElementById("sadness").innerHTML = list[0].childNodes[6].textContent;
 	document.getElementById("surprise").innerHTML = list[0].childNodes[7].textContent;
 }
+	
+	type: "POST",
+ data: file,
+ processData: false
+ })
+ .done(function (response) {
+ ProcessResult(response);
+ })
+ .fail(function (error) {
+ $("#response").text(error.getAllResponseHeaders());
+ });
+ }
+ 
+ function ProcessResult(response)
+ {
+ var data = JSON.stringify(response);
+ $("#response").text(data);
+ }
+	
 window.onload= ShowCam;
 </script>
 <style type="text/css">
