@@ -38,7 +38,16 @@ function SaveSnap(){
 	ajax.send(img);
 }
 
-function uploadcomplete(event){
+function uploadcomplete(event)
+	
+	 function ProcessResult(response)
+    {
+        var data = JSON.stringify(response);
+        $("#response").text(data);
+    }
+	
+	/*
+	{
     document.getElementById("loading").innerHTML="Completed";
 	var xmlDoc=event.target.responseXML;
 	var list = xmlDoc.getElementsByTagName("scores");
@@ -50,7 +59,7 @@ function uploadcomplete(event){
 	document.getElementById("neutral").innerHTML = list[0].childNodes[5].textContent;
 	document.getElementById("sadness").innerHTML = list[0].childNodes[6].textContent;
 	document.getElementById("surprise").innerHTML = list[0].childNodes[7].textContent;
-}
+}*/
 window.onload= ShowCam;
 </script>
 <style type="text/css">
@@ -70,7 +79,8 @@ window.onload= ShowCam;
 <div class="container" id="Cam"><b>Webcam Preview...</b>
     <div class="footer"><div id="my_camera"></div><form><input type="button" value="Snap It" onClick="take_snapshot()"></form></div>
 </div>
-<div class="container" id="Prev">
+	
+	<div class="container" id="Prev">
     <div class="footer"><b>Snap Preview...</b><div id="results"></div></div>
 </div>
 <div class="container" id="Saved">
@@ -86,6 +96,7 @@ window.onload= ShowCam;
     </div>
 	<div class="footer"><b>Task : </b><span id="loading"></span></div>
 </div>
+	
 
 </body>
 </html>
