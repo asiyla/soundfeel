@@ -63,7 +63,7 @@ window.playmaj = function() {
 	}, ["C4", "D4", "E4", "G4", "A4"], "alternateUp");
 
 	patternmaj.start()
-	patternmaj.stop(10)
+	//patternmaj.stop(10)
 	Tone.Transport.start();
 }
 
@@ -73,7 +73,7 @@ window.playmin = function() {
 	}, ["C4", "D4", "Eb4", "G4", "Ab4"]);
 
 	patternmin.start();
-	patternmin.stop(10);
+	//patternmin.stop(10);
 	Tone.Transport.start();
 }
 	
@@ -87,6 +87,8 @@ freeverb.dampening.value = 10000;
 window.synth = new Tone.AMSynth().connect(freeverb);
 
 //window.playmaj();
+	
+	alert("not stopping");
 }//]]> 
 
 </script>
