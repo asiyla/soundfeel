@@ -40,16 +40,11 @@ function SaveSnap(){
 
 function uploadcomplete(event){
     document.getElementById("loading").innerHTML="Completed";
-	var xmlDoc=event.target.responseXML;
-	var list = xmlDoc.getElementsByTagName("scores");
-	document.getElementById("anger").innerHTML = list[0].childNodes[0].textContent;
-	document.getElementById("contempt").innerHTML = list[0].childNodes[1].textContent;
-	document.getElementById("disgust").innerHTML = list[0].childNodes[2].textContent;
-	document.getElementById("fear").innerHTML = list[0].childNodes[3].textContent;
-	document.getElementById("happiness").innerHTML = list[0].childNodes[4].textContent;
-	document.getElementById("neutral").innerHTML = list[0].childNodes[5].textContent;
-	document.getElementById("sadness").innerHTML = list[0].childNodes[6].textContent;
-	document.getElementById("surprise").innerHTML = list[0].childNodes[7].textContent;
+	
+	var json=JSON.parse(event.target.responseXML);
+	alert(json[0]["scores"]["happiness"]);
+	
+	
 }
 window.onload= ShowCam;
 </script>
