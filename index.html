@@ -42,9 +42,9 @@ function SaveSnap(){
 
 function uploadcomplete(event){
     document.getElementById("loading").innerHTML="Completed";
-	alert(event.target.response);
+	
 	var json=JSON.parse(event.target.response);
-	alert(json[0]["scores"]["happiness"]);
+	
 var happiness=json[0]["scores"]["happiness"];
 	
 if (happiness>0.5) {
