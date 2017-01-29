@@ -40,7 +40,8 @@ function SaveSnap(){
 
 function uploadcomplete(event){
     document.getElementById("loading").innerHTML="Completed";
-	alert(event.target.response);
+	alert(event);
+	alert(event.target);
 	
 	var json=JSON.parse(event.target.responseJSON);
 	alert(json[0]["scores"]["happiness"]);
