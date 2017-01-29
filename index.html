@@ -64,6 +64,7 @@ window.playmaj = function() {
 
 	patternmaj.start()
 	patternmaj.stop(10)
+	Tone.Transport.start();
 }
 
 window.playmin = function() {
@@ -73,6 +74,7 @@ window.playmin = function() {
 
 	patternmin.start();
 	patternmin.stop(10);
+	Tone.Transport.start();
 }
 	
 window.onload=function(){
@@ -85,9 +87,6 @@ freeverb.dampening.value = 10000;
 window.synth = new Tone.AMSynth().connect(freeverb);
 
 window.playmaj();
-	
-Tone.Transport.start();
-alert("started");
 }//]]> 
 
 </script>
