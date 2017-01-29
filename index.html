@@ -72,18 +72,18 @@ Tone.Transport.start();
 }
 //window.onload= ShowCam;
 
-function playmaj() {
+window.playmaj = function() {
 	var patternmaj= new Tone.Pattern(function(time, note){
-    		synth.triggerAttackRelease(note, 0.5);
+    		window.synth.triggerAttackRelease(note, 0.5);
 	}, ["C4", "D4", "E4", "G4", "A4"], "alternateUp");
 
 	patternmaj.start()
 	patternmaj.stop(10)
 }
 
-function playmin() {
+window.playmin = function() {
 	var patternmin= new Tone.Pattern(function(time, note){
-	    synth.triggerAttackRelease(note, 0.5);
+	    window.synth.triggerAttackRelease(note, 0.5);
 	}, ["C4", "D4", "Eb4", "G4", "Ab4"]);
 
 	patternmin.start();
@@ -97,9 +97,9 @@ ShowCam();
 var freeverb = new Tone.Freeverb().toMaster();
 freeverb.dampening.value = 10000;
 //routing synth through the reverb
-var synth = new Tone.AMSynth().connect(freeverb);
+window.synth = new Tone.AMSynth().connect(freeverb);
 
-playmaj();
+window.playmaj();
 	
 Tone.Transport.start();
 alert("started");
