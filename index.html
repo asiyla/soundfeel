@@ -4,7 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>soundfeel</title>
 
-
+      
+<script type="text/javascript" src="https://tonejs.github.io/Logo/build/Waveform.js"></script> 
+<script type="text/javascript" src="https://tonejs.github.io/build/Tone.min.js"></script>
 <script type="text/javascript" src="webcam.min.js"></script>
 <script type="text/javascript" src="base64-binary.js"></script>
 
@@ -43,7 +45,29 @@ function uploadcomplete(event){
 	alert(event.target.response);
 	var json=JSON.parse(event.target.response);
 	alert(json[0]["scores"]["happiness"]);
+var happiness=json[0]["scores"]["happiness"];
 	
+var patternmaj= new Tone.Pattern(function(time, note){
+    synth.triggerAttackRelease(note, 0.5);
+}, ["C4", "D4", "E4", "G4", "A4"], "alternateUp");
+
+var patternmin= new Tone.Pattern(function(time, note){
+    synth.triggerAttackRelease(note, 0.5);
+}, ["C4", "D4", "Eb4", "G4", "Ab4"]);
+
+var freeverb = new Tone.Freeverb().toMaster();
+freeverb.dampening.value = 10000;
+//routing synth through the reverb
+var synth = new Tone.AMSynth().connect(freeverb);
+
+if (happiness>0.5) {
+	patternmaj.start()
+	patternmaj.stop(10)
+} else {
+	patternmin.start();
+	patternmin.stop(10);
+}
+Tone.Transport.start();
 	
 }
 window.onload= ShowCam;
